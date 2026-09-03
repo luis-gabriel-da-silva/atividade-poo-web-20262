@@ -10,12 +10,17 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->integer('position')->default(0);
             $table->timestamps();
+
+            $table->foreignId('costumer_id')
+                ->constrained('costumers')
+                ->onDelete('cascade');
+
+            $table->double('total_price');
+            $table->enum('status', ['pago', 'cancelado', 'aberto']);
+            $table->timestamp('paid_at')->nullable();
         });
     }
 
@@ -24,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('orders');
     }
 };

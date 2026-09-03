@@ -1,0 +1,47 @@
+
+@baseUri = http://localhost:8182/api
+
+### Index
+GET {{baseUri}}/costumers HTTP/1.1
+content-type: application/json
+
+### Store
+POST {{baseUri}}/costumers HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Cliente criado via API/REST",
+    "email": "cliente@email.com",
+    "phone": "44999999999",
+    "birth_date": "2000-05-15"
+}
+
+### Show
+# 1 é o ID do cliente neste exemplo
+# Utilize um ID existente em sua base de dados.
+
+GET {{baseUri}}/costumers/1 HTTP/1.1
+Content-Type: application/json
+
+### Update
+# 1 é o ID do cliente neste exemplo
+# Utilize um ID existente em sua base de dados.
+
+PUT {{baseUri}}/costumers/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Cliente ATUALIZADO via API/REST",
+    "email": "clienteatualizado@email.com",
+    "phone": "44988888888"
+}
+
+### Delete
+# 1 é o ID do cliente neste exemplo.
+# Utilize um ID existente em sua base de dados.
+#
+# Após a execução deste processo, o mesmo ID não funcionará
+# em outras operações, pois o registro foi removido.
+
+DELETE {{baseUri}}/costumers/1 HTTP/1.1
+content-type: application/json

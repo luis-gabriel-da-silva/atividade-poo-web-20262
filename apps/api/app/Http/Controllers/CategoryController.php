@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryUpdateRequest;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Http\Requests\CategoryStoreRequest;
 
 class CategoryController extends Controller
 {
@@ -18,13 +21,12 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
-        $category->description = $request->description;
 
-        $category->save();
+        $data = $request->validated();
+
+        $category = Category::create($data);
 
         return $category;
 
@@ -33,16 +35,16 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Category $category)
     {
-        $category = Category::find($id);
+        // $category = Category::find($id);
 
-        if (!$category) {
-            // 404 not found
-            return response()->json([
-                'message' => 'Categoria não encontrada',
-            ], 404);
-        }
+        // if (!$category) {
+        //     // 404 not found
+        //     return response()->json([
+        //         'message' => 'Categoria não encontrada',
+        //     ], 404);
+        // }
 
         return $category;
     }
@@ -50,21 +52,11 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Category $category, CategoryUpdateRequest $request)
     {
-        $category = Category::find($id);
+        $data = $request->validated();
 
-        if (!$category) {
-            // 404 not found
-            return response()->json([
-                'message' => 'Categoria não encontrada',
-            ], 404);
-        }
-
-        $category->name = $request->name ?? $category->name;
-        $category->description = $request->description ?? $category;
-
-        $category->save();
+        $category->update($data);
 
         return $category;
     }
@@ -72,16 +64,9 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        $category = Category::find($id);
-
-        if (!$category) {
-            // 404 not found
-            return response()->json([
-                'message' => 'Categoria não encontrada',
-            ], 404);
-        }
+        $category = Category::find($category);
 
         $hasProduct = \App\Models\Product::where('category_id', $category->id)->exists();
 

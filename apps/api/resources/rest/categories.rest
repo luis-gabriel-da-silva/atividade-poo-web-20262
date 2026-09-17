@@ -38,5 +38,5 @@ Content-Type: application/json
 #
 # Após a execução deste processo, o mesmo ID não funcionará
 # em outras operações, pois o registro foi removido.
-DELETE {{baseUri}}/categories/130 HTTP/1.1
+DELETE {{baseUri}}/categories/14 HTTP/1.1
 content-type: application/json

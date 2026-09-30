@@ -41,3 +41,11 @@ exit
 php artisan vendor:publish --
 provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
 exit
+php artisan vendor:publish --
+php artisan vendor:publish --
+php artisan vendor:publish --
+provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
+composer require dedoc/scramble
+composer require dedoc/scramble
+php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
+exit

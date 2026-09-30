@@ -1,7 +1,7 @@
-@baseUri = http://localhost:8182/api
 ### Login
 POST {{baseUri}}/auth/login HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{accessToken}}
 
 {
  "username": "welch.maybelle@example.org",

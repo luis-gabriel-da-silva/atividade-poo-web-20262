@@ -1,9 +1,8 @@
 
-@baseUri = http://localhost:8182/api
-
 ### Index
 GET {{baseUri}}/products HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{accessToken}}
 
 ### Store
 POST {{baseUri}}/products HTTP/1.1

@@ -38,3 +38,6 @@ php artisan make:request OrderStoreRequest
 php artisan list
 php artisan Route:list
 exit
+php artisan vendor:publish --
+provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
+exit

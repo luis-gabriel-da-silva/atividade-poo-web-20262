@@ -25,7 +25,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'name' => 'string|required',
             'description' => 'string|nullable',
-            'price' => 'float|required',
+            'price' => 'numeric|required',
             'stock' => 'integer|required'
         ];
     }

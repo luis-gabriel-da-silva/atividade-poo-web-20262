@@ -17,8 +17,8 @@ return new class extends Migration {
             $table->text('description');
             $table->double('price');
             $table->integer('stock');
-            $table->integer('position');
-            $table->boolean('enabled');
+            $table->unsignedInteger('position')->default(0);
+            $table->boolean('enabled')->default(true);
         });
     }
 
@@ -29,4 +29,5 @@ return new class extends Migration {
     {
         Schema::dropIfExists('products');
     }
+
 };

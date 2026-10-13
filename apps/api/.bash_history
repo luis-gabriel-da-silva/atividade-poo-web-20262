@@ -50,3 +50,9 @@ composer require dedoc/scramble
 php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
 exit
 exit
+php artisan migrate
+php artisan migrate:fresh
+exit
+php artisan db:seed
+php artisan tinker
+exit

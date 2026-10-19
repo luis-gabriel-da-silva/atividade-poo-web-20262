@@ -23,9 +23,10 @@ class CostumerUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|required',
-            'email' => 'string|nullable',
-            'phone' => 'string|required'
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email'],
+            'phone' => ['nullable', 'string', 'max:20'],
+            'birth_date' => ['required', 'date', 'before:today'],
         ];
     }
 }

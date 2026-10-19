@@ -7,11 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 
 
-#[Fillable(['name', 'email', 'phone'])]
+#[Fillable(['name', 'email', 'phone', 'birth_date'])]
 class Costumers extends Model
 {
-    /** @use HasFactory<\Database\Factories\CostumersFactory> */
     use HasFactory;
+
+    protected function casts(): array
+    {
+        return [
+            'birth_date' => 'date:Y-m-d',
+        ];
+    }
 
     public function orders()
     {

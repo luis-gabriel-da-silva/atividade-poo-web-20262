@@ -23,6 +23,7 @@ class CostumerController extends Controller
     {
 
         $data = $request->validated();
+        dd($request->all(), $data);
 
         $costumers = Costumers::create($data);
 

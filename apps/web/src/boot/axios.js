@@ -1,9 +1,10 @@
 import { defineBoot } from '#q-app';
 import axios from 'axios'
-import { Notify } from 'quasar'
+import { LocalStorage, Notify } from 'quasar'
 
 const getToken = () => {
-    return "1|AqapTapqyYFjPddEzx01CshzRB2Etd8AcQfAZfW0bed97f58";
+    const auth = LocalStorage.getItem('auth_data')
+    return auth?.token ?? null;
 }
 
 const api = axios.create({ baseURL: import.meta.env.QCLI_API_URL })

@@ -33,11 +33,19 @@
             />
 
             <q-input
-              v-model="formObject.phone"
-              stack-label
-              required
-              type="tel"
-              label="Telefone"
+                v-model="formObject.phone"
+                stack-label
+                required
+                type="tel"
+                label="Telefone"
+                mask="(##) #####-####"
+                unmasked-value
+                hint="Ex.: (42) 99994-9429"
+                :rules="[
+                    (v) => !!v || 'Informe o telefone',
+                    (v) => v.length === 11 || 'Informe DDD + 9 dígitos',
+                ]"
+                lazy-rules
             />
 
             <q-input

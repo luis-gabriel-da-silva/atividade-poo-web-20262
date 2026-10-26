@@ -32,7 +32,10 @@
             {{ product.name }}
           </q-item-label>
           <q-item-label caption>
-            {{ product.description }}
+            Descrição: {{ product.description }}
+          </q-item-label>
+          <q-item-label caption> 
+            Quantidade: {{ product.stock }}
           </q-item-label>
         </q-item-section>
         <q-item-section side>

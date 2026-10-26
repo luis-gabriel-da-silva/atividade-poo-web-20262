@@ -2,60 +2,58 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CostumerUpdateRequest;
-use App\Models\Costumers;
-use App\Http\Requests\CostumerStoreRequest;
+use App\Http\Requests\CustomerUpdateRequest;
+use App\Models\Customers;
+use App\Http\Requests\CustomerStoreRequest;
 
-class CostumerController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Costumers::paginate();
+        return Customers::paginate();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CostumerStoreRequest $request)
+    public function store(CustomerStoreRequest $request)
     {
-
         $data = $request->validated();
 
-        $costumers = Costumers::create($data);
+        $customers = Customers::create($data);
 
-        return $costumers;
-
+        return $customers;
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Costumers $costumers)
+    public function show(Customers $customers)
     {
-        return $costumers;
+        return $customers;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Costumers $costumers, CostumerUpdateRequest $request)
+    public function update(Customers $customers, CustomerUpdateRequest $request)
     {
         $data = $request->validated();
 
-        $costumers->update($data);
+        $customers->update($data);
 
-        return $costumers;
+        return $customers;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Costumers $costumers)
+    public function destroy(Customers $customers)
     {
-        $costumers->delete();
+        $customers->delete();
 
         return response()->json([
             'message' => 'Cliente excluído com sucesso',

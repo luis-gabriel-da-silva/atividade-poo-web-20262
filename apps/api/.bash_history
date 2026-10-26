@@ -56,3 +56,15 @@ exit
 php artisan db:seed
 php artisan tinker
 exit
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan migrate:fresh
+php artisan db:seed
+composer require dedoc/scramble
+php artisan vendor:publish --provider="Dedoc\Scramble\ScrambleServiceProvider" --tag="scramble-config"
+exit
+php artisan tinker
+php artisan seed:tinker
+exit

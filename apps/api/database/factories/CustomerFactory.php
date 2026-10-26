@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Costumers;
+use App\Models\Customer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * @extends Factory<Costumers>
+ * @extends Factory<Customer>
  */
-class CostumersFactory extends Factory
+class CustomerFactory extends Factory
 {
     public function definition(): array
     {

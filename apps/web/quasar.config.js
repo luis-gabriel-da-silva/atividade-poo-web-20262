@@ -113,6 +113,7 @@ export default defineConfig((ctx) => {
       plugins: [
         'Dialog',
         'Notify',
+        'LocalStorage',
       ],
     },
 
@@ -225,9 +226,6 @@ export default defineConfig((ctx) => {
        * @example [ 'my-script.ts', 'sub-folder/my-other-script.js' ]
        */
       extraScripts: [],
-      framework: {
-        plugins: ['Notify']
-      }
     },
   }
 })

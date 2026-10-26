@@ -65,23 +65,11 @@ class CategoryController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Category $category)
-    {
-        $category = Category::find($category);
+{
+    $category->delete();
 
-        $hasProduct = \App\Models\Product::where('category_id', $category->id)->exists();
-
-        if ($hasProduct) {
-            // 422 Unprocessable Entity
-            return response()->json([
-                'message' => 'Categoria com produtos relacionados',
-            ], 422);
-        }
-
-        $category->delete();
-
-        //204 No content
-        return response()->json([
-            'message' => 'Categoria excluída',
-        ], 204);
-    }
+    return response()->json([
+        'message' => 'Categoria excluída',
+    ], 200);
+}
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 
 
-#[Fillable(['costumer_id', 'total_price', 'status', 'paid_at'])]
+#[Fillable(['customer_id', 'total_price', 'status', 'paid_at'])]
 
 class Order extends Model
 {
@@ -16,6 +16,6 @@ class Order extends Model
 
     public function costumer()
     {
-        return $this->belongsTo(Costumers::class);
+        return $this->belongsTo(Customer::class);
     }
 }

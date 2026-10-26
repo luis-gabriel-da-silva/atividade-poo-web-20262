@@ -4,6 +4,6 @@ content-type: application/json
 Authorization: Bearer {{accessToken}}
 
 {
- "username": "admin@example.com",
+ "username": "test@example.com",
  "password": "password"
 }

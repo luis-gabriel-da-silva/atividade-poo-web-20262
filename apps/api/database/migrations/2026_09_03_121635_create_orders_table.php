@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->timestamps();
 
-            $table->foreignId('costumer_id')
-                ->constrained('costumers')
+            $table->foreignId('customer_id')
+                ->constrained('customers')
                 ->onDelete('cascade');
 
             $table->double('total_price');

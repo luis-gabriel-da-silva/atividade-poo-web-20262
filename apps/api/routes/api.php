@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CostumerController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +18,7 @@ Route::group([
     ]
 ], function () {
     Route::apiResource('categories', CategoryController::class);
-    Route::apiResource('costumers', CostumerController::class);
+    Route::apiResource('customers', CustomerController::class);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('orders', OrderController::class);
 });

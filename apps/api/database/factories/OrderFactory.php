@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Costumers;
+use App\Models\Customer;
 use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,7 +25,7 @@ class OrderFactory extends Factory
         ]);
 
         return [
-            'costumer_id' => Costumers::factory(),
+            'custumer_id' => Customer::factory(),
             'total_price' => fake()->randomFloat(2, 10, 1000),
             'status' => $status,
             'paid_at' => $status === 'pago'

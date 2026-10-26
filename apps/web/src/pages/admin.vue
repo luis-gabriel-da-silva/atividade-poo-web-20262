@@ -43,6 +43,12 @@ const linksList = [
     link: '/admin/products',
   },
   {
+    label: 'Clientes',
+    caption: 'cliente',
+    icon: 'people',
+    link: '/admin/customers',
+  },
+  {
     label: 'Sair',
     caption: 'sair do sistema',
     icon: 'exit_to_app',

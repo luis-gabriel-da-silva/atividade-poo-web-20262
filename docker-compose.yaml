@@ -93,11 +93,15 @@ services:
       - ./apps/web:/app
     ports:
       - "9010:9000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=300
     stdin_open: true
     tty: true
     command: sh
     networks:
       - poo_web
+ 
 
 volumes:
   mysql_data:

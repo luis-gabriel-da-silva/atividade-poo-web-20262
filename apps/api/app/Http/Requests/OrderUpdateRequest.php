@@ -18,7 +18,7 @@ class OrderUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'costumer_id' => 'required|exists:costumers,id',
+            'customer_id' => 'required|exists:customers,id',
             'total_price' => 'required|numeric|min:0',
             'status' => 'required|in:pago,cancelado,aberto',
             'paid_at' => 'nullable|date',

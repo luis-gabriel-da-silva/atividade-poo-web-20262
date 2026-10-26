@@ -1,59 +1,60 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CustomerUpdateRequest;
-use App\Models\Customers;
 use App\Http\Requests\CustomerStoreRequest;
+use App\Http\Requests\CustomerUpdateRequest;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista os clientes com paginação.
      */
     public function index()
     {
-        return Customers::paginate();
+        return Customer::paginate(10);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Cadastra um novo cliente.
      */
     public function store(CustomerStoreRequest $request)
     {
         $data = $request->validated();
 
-        $customers = Customers::create($data);
+        $customer = Customer::create($data);
 
-        return $customers;
+        return response()->json($customer, 201);
     }
 
     /**
-     * Display the specified resource.
+     * Exibe um cliente específico.
      */
-    public function show(Customers $customers)
+    public function show(Customer $customer)
     {
-        return $customers;
+        return response()->json($customer, 200);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualiza um cliente.
      */
-    public function update(Customers $customers, CustomerUpdateRequest $request)
-    {
+    public function update(
+        CustomerUpdateRequest $request,
+        Customer $customer
+    ) {
         $data = $request->validated();
 
-        $customers->update($data);
+        $customer->update($data);
 
-        return $customers;
+        return response()->json($customer, 200);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Exclui um cliente.
      */
-    public function destroy(Customers $customers)
+    public function destroy(Customer $customer)
     {
-        $customers->delete();
+        $customer->delete();
 
         return response()->json([
             'message' => 'Cliente excluído com sucesso',

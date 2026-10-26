@@ -68,3 +68,5 @@ exit
 php artisan tinker
 php artisan seed:tinker
 exit
+docker compose down
+exit

@@ -54,6 +54,15 @@ export default defineConfig((ctx) => {
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
 
+      extendViteConf(viteConf) {
+        viteConf.server = viteConf.server || {}
+        viteConf.server.watch = {
+          ...(viteConf.server.watch || {}),
+          usePolling: true,
+          interval: 300,
+        }
+      },
+
       vitePlugins: [
         [
           '@intlify/unplugin-vue-i18n/vite',
@@ -228,4 +237,5 @@ export default defineConfig((ctx) => {
       extraScripts: [],
     },
   }
+
 })

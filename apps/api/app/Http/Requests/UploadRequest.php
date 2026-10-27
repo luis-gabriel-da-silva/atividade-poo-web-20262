@@ -23,7 +23,7 @@ class UploadRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'arquivo' => 'required'|'file'
+            'file' => ['required', 'file', 'max:10240'],
         ];
     }
 }

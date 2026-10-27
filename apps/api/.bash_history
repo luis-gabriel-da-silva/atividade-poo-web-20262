@@ -82,3 +82,22 @@ php artisan serve
 php artisan serve
 php artisan serve
 exit
+composer install
+cp env.example .env
+php artisan key:generate
+composer install
+php artisan key:generate
+docker compose up -d
+exit
+cp env.example .env
+php artisan key:generate
+dir
+cp .env.example .env
+php artisan key:generate
+php artisan migrate:fresh
+exit
+ls storage/app/private/uploads/
+php artisan optmize:clear
+php artisan optimize:clear
+php artisan scramble:export
+exit

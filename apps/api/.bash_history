@@ -70,3 +70,15 @@ php artisan seed:tinker
 exit
 docker compose down
 exit
+php artisan make:request UploadRequest
+php artisan make:controller UploadController
+php artisan storage:link
+php artisan route:list
+docker compose down
+docker compose up
+docker compose up -d
+php artisan route:list
+php artisan serve
+php artisan serve
+php artisan serve
+exit

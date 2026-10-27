@@ -6,6 +6,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UploadController;
 
 
 //Registrar rota de login
@@ -22,4 +23,7 @@ Route::group([
     Route::apiResource('products', ProductController::class);
     Route::apiResource('orders', OrderController::class);
 });
+
+    Route::post('/upload', [UploadController::class, 'upload']);
+
 

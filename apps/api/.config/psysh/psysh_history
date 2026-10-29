@@ -4,3 +4,10 @@
     'password' => bcrypt('password'),
 ]);
 quit
+quit
+\App\Models\User::create([
+    'name' => 'Administrador',
+    'email' => 'admin@email.com',
+    'password' => bcrypt('admin123'),
+    'email_verified_at' => now(),
+]);

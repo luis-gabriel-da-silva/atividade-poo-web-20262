@@ -25,6 +25,7 @@ class ProductUpdateRequest extends FormRequest
         return [
             'name' => 'string|required',
             'description' => 'string|nullable',
+            'image' => 'url|nullable',
             'price' => 'float|required',
             'stock' => 'integer|required'
         ];

@@ -101,3 +101,7 @@ php artisan optmize:clear
 php artisan optimize:clear
 php artisan scramble:export
 exit
+php artisan make:migration add_columns_to_products_table
+php artisan migrate
+php artisan storage:link
+exit
